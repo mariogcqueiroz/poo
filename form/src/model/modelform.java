@@ -1,0 +1,31 @@
+package model;
+
+public class modelform {
+	private String nome;
+	private String cpf;
+	
+	public modelform() {
+		
+	}
+	public void att(String Nome, String Cpf) {
+		setNome(Nome);
+		setCpf(Cpf);
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	@Override
+	public String toString() {
+		return "nome=" + getNome() + ", cpf=" + getCpf() ;
+	}
+	
+}

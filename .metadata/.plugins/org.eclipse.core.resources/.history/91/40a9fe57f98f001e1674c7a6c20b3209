@@ -1,0 +1,41 @@
+package controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import model.modelform;
+import view.viewform;
+
+public class formController implements ActionListener{
+	private viewform view;
+	private modelform model;
+	
+	public formController(viewform view,modelform model) {
+		setView(view);
+		setModel(model);
+		view.setListeners(this);
+	}
+	
+	public viewform getView() {
+		return view;
+	}
+	public void setView(viewform view) {
+		this.view = view;
+	}
+	public modelform getModel() {
+		return model;
+	}
+	public void setModel(modelform model) {
+		this.model = model;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getActionCommand()=="enviar") {
+			model.att(view.getNome().getText(),view.getCpf().getText());
+			view.atualizar(model.toString());
+		}
+		
+	}
+	
+}

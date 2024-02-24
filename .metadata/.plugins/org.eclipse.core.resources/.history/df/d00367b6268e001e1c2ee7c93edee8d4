@@ -1,0 +1,9 @@
+package controller;
+
+import view.screen;
+
+public class controller {
+
+	private Modeltest model;
+	private screen view;
+}

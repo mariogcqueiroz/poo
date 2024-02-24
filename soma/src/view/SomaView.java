@@ -1,0 +1,66 @@
+package view;
+
+import java.awt.Container;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import controller.SomaController;
+
+public class SomaView extends JFrame{
+	private Container container;
+	private JTextField num1;
+	private JTextField num2;
+	private JButton ok;
+	private JLabel resultado;
+	public SomaView() {
+		setBounds(300, 90, 410, 530);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		container = getContentPane();
+		container.setLayout(null);
+		
+
+		
+		num1 = new JTextField();
+		num1.setFont(new Font("Arial", Font.PLAIN, 30));
+		num1.setSize(100, 50);
+		num1.setLocation(70, 100);
+		container.add(num1);
+		
+		num2 = new JTextField();
+		num2.setFont(new Font("Arial", Font.PLAIN, 30));
+		num2.setSize(100, 50);
+		num2.setLocation(190, 100);
+		container.add(num2);
+		
+		ok =new JButton("=");
+		ok.setSize(220, 30);
+		ok.setLocation(70, 150);
+		container.add(ok);
+		
+		resultado = new JLabel("teste");
+		resultado.setFont(new Font("Arial", Font.PLAIN, 30));
+		resultado.setSize(100, 50);
+		resultado.setLocation(180, 200);
+		container.add(resultado);
+		setVisible(true);
+	}
+	public void update1(String resposta) {
+		resultado.setText(resposta);
+	}
+	public void setListener(SomaController lis) {
+		this.num1.addActionListener(lis);
+		this.num2.addActionListener(lis);
+		this.ok.addActionListener(lis);
+	}
+	public JTextField getNum1() {
+		return num1;
+	}
+	public JTextField getNum2() {
+		return num2;
+	}
+}

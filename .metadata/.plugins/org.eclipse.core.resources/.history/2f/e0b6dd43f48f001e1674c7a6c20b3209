@@ -1,0 +1,112 @@
+package view;
+
+import controller.formController;
+import java.awt.Container;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import controller.formController;
+
+public class viewform extends JFrame{
+	private JLabel nome;
+	private JLabel cpf;
+	private JTextField tnome;
+	private JTextField tcpf;
+	private JLabel resposta;
+	private JButton enviar;
+	private Container container;
+	
+	public viewform() {
+		super("Formulario de cadastro");
+		setBounds(400,300,450,350);
+		container = getContentPane();
+		container.setLayout(null);
+		
+		setResizable(false);
+		
+		nome = new JLabel();
+		nome.setLocation(125, 20);
+		nome.setSize(100,100);
+		container.add(nome);
+		
+		cpf = new JLabel();
+		cpf.setLocation(125, 50);
+		cpf.setSize(100,100);
+		container.add(cpf);
+		
+		tnome = new JTextField();
+		tnome.setLocation(125, 80);
+		tnome.setSize(100,100);
+		container.add(tnome);
+		
+		tcpf = new JTextField();
+		tcpf.setLocation(125, 110);
+		tcpf.setSize(100,100);
+		container.add(tcpf);
+		
+		enviar = new JButton();
+		enviar.setLocation(125, 140);
+		enviar.setSize(200,150);
+		enviar.add(container);
+		
+		resposta = new JLabel();
+		resposta.setLocation(125, 180);
+		resposta.setSize(200,150);
+		resposta.add(container);
+		
+		
+		setVisible(true);
+	}
+	
+	public void setListeners(formController listener) {
+		this.enviar.addActionListener(listener);
+	}
+	
+	public void atualizar(String txt) {
+		resposta.setText(txt);
+	}
+
+	public JLabel getNome() {
+		return nome;
+	}
+
+	public void setNome(JLabel nome) {
+		this.nome = nome;
+	}
+
+	public JLabel getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(JLabel cpf) {
+		this.cpf = cpf;
+	}
+
+	public JTextField getTnome() {
+		return tnome;
+	}
+
+	public void setTnome(JTextField tnome) {
+		this.tnome = tnome;
+	}
+
+	public JTextField getTcpf() {
+		return tcpf;
+	}
+
+	public void setTcpf(JTextField tcpf) {
+		this.tcpf = tcpf;
+	}
+
+	public JLabel getResposta() {
+		return resposta;
+	}
+
+	public void setResposta(JLabel resposta) {
+		this.resposta = resposta;
+	}
+	
+}

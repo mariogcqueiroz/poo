@@ -1,0 +1,114 @@
+package view;
+
+import controller.formController;
+import java.awt.Container;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import controller.formController;
+
+public class viewform extends JFrame{
+	private JLabel nome;
+	private JLabel cpf;
+	private JTextField tnome;
+	private JTextField tcpf;
+	private JTextArea resposta;
+	private JButton enviar;
+	private Container container;
+	
+	public viewform() {
+		super("Formulario de cadastro");
+		setBounds(400,300,450,350);
+		container = getContentPane();
+		container.setLayout(null);
+		
+		setResizable(false);
+		
+		nome = new JLabel("Digite o nome");
+		nome.setLocation(125, 20);
+		nome.setSize(200,15);
+		container.add(nome);
+		
+		cpf = new JLabel("Digite o cpf");
+		cpf.setLocation(125, 80);
+		cpf.setSize(200,30);
+		container.add(cpf);
+		
+		tnome = new JTextField();
+		tnome.setLocation(125, 50);
+		tnome.setSize(200,30);
+		container.add(tnome);
+		
+		tcpf = new JTextField();
+		tcpf.setLocation(125, 110);
+		tcpf.setSize(200,30);
+		container.add(tcpf);
+		
+		enviar = new JButton("enviar");
+		enviar.setLocation(125, 140);
+		enviar.setSize(200,30);
+		container.add(enviar);
+		
+		resposta = new JTextArea();
+		resposta.setLocation(125, 180);
+		resposta.setSize(500,200);
+		resposta.setEditable(false);
+		container.add(resposta);
+		
+		
+		setVisible(true);
+	}
+	
+	public void setListeners(formController listener) {
+		this.enviar.addActionListener(listener);
+	}
+	
+	public void atualizar(String txt) {
+		resposta.setText(txt);
+	}
+
+	public JLabel getNome() {
+		return nome;
+	}
+
+	public void setNome(JLabel nome) {
+		this.nome = nome;
+	}
+
+	public JLabel getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(JLabel cpf) {
+		this.cpf = cpf;
+	}
+
+	public JTextField getTnome() {
+		return tnome;
+	}
+
+	public void setTnome(JTextField tnome) {
+		this.tnome = tnome;
+	}
+
+	public JTextField getTcpf() {
+		return tcpf;
+	}
+
+	public void setTcpf(JTextField tcpf) {
+		this.tcpf = tcpf;
+	}
+
+	public JLabel getResposta() {
+		return resposta;
+	}
+
+	public void setResposta(JLabel resposta) {
+		this.resposta = resposta;
+	}
+	
+}

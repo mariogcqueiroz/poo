@@ -1,0 +1,298 @@
+package databasequeries;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+import entidades.Produto;
+
+public class QueryProduto {
+	public static void consultaProduto(Connection conecta) {
+		Statement st = null;
+		ResultSet rs = null;
+		
+		try {
+			
+				st = conecta.createStatement();
+				rs = st.executeQuery("Select * from PRODUTO");
+						while (rs.next()) {
+							System.out.println(rs.getString("cod_barras")+rs.getString("descricao") + rs.getString("un_medida") + rs.getFloat("preco_custo") 
+							+ rs.getFloat("preco_venda") + rs.getInt("qtd_estoque")+ rs.getInt("codigo")+ rs.getInt("qtd_min"));
+						}
+			}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (st != null) {
+					st.close();
+				}
+
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}
+
+	
+
+	/**
+	*RETORNA UM PRODUTO PELO CODIGO
+	*RETORNA UM MODEL PRODUTO
+	*/
+		public static Produto retornaProduto(Connection conecta, int cod) {
+			Produto produto = new Produto();
+			Statement st = null;
+			ResultSet rs = null;
+			try {
+				st = conecta.createStatement();
+				rs = st.executeQuery("SELECT Descricao, qtd_estoque ,qtd_min , cod_barras, preco_custo,preco_venda,codigo FROM produto WHERE codigo ='"+ cod +"';"); 
+				while(rs.next()) {
+					produto.setDescricao(rs.getString(1));
+					produto.setQtd_Estoque(rs.getInt(2));
+					produto.setQtd_min(rs.getInt(3));
+					produto.setCod_Barras(rs.getInt(4));
+					produto.setPreco_Custo(rs.getFloat(5));
+					produto.setPreco_Venda(rs.getFloat(6));
+				}
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally {
+				try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (st != null) {
+						st.close();
+					}
+
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				
+			}
+			return produto; 
+		}
+		public static Produto retornaProdutoPNome(Connection conecta, String NomeProduto) {
+			Produto produto = new Produto();
+			Statement st = null;
+			ResultSet rs = null;
+			try {
+				st = conecta.createStatement();
+				rs = st.executeQuery("SELECT Descricao, qtd_estoque ,qtd_min , cod_barras, preco_custo,preco_venda,codigo FROM produto WHERE pronome ='"+ NomeProduto +"';"); 
+				while(rs.next()) {
+					produto.setDescricao(rs.getString(1));
+					produto.setQtd_Estoque(rs.getInt(2));
+					produto.setQtd_min(rs.getInt(3));
+					produto.setCod_Barras(rs.getInt(4));
+					produto.setPreco_Custo(rs.getFloat(5));
+					produto.setPreco_Venda(rs.getFloat(6));
+				}
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally {
+				try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (st != null) {
+						st.close();
+					}
+
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				
+			}
+			return produto; 
+		}
+		/**
+		 * 
+		 * @param conecta
+		 * uma lista de produtos 
+		 */
+		public static ArrayList<Produto> retornarListaProdutos(Connection conecta){
+			ArrayList<Produto> listaModelProdutos = new ArrayList<>();
+			Produto produto= new Produto();
+			Statement st = null;
+			ResultSet rs = null;
+			try {
+				st= conecta.createStatement();
+				rs = st.executeQuery("SELECT Descricao, qtd_estoque ,qtd_min , cod_barras, preco_custo,preco_venda,codigo FROM produto;"); 
+				while(rs.next()) {
+					produto.setDescricao(rs.getString(1));
+					produto.setQtd_Estoque(rs.getInt(2));
+					produto.setQtd_min(rs.getInt(3));
+					produto.setCod_Barras(rs.getInt(4));
+					produto.setPreco_Custo(rs.getFloat(5));
+					produto.setPreco_Venda(rs.getFloat(6));
+					listaModelProdutos.add(produto);
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (st != null) {
+						st.close();
+					}
+
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				
+			}
+			return listaModelProdutos;
+		}
+	/**
+	 * 
+	 * @param conecta
+	 * @param modelProdutos
+	 * INSERE UM PRODUTO NO BANCO 
+	 */
+		
+	
+	public static boolean insereProduto(Connection conecta, Produto modelProdutos) {
+		PreparedStatement st = null;
+		try {
+			
+			st= conecta.prepareStatement("INSERT INTO PRODUTO" + "(Descricao, qtd_estoque ,qtd_min , cod_barras, preco_custo,preco_venda,codigo)"+ "VALUES" + "(?,?,?,?,?,?,?)");
+			
+
+			st.setString(1, modelProdutos.getDescricao());
+			st.setInt(2, modelProdutos.getQtd_Estoque());
+			st.setInt(3, modelProdutos.getQtd_min());
+			st.setDouble(4, modelProdutos.getCod_Barras());
+			st.setFloat(5, modelProdutos.getPreco_Custo());
+			st.setFloat(6, modelProdutos.getPreco_Venda());
+			st.setInt(7, modelProdutos.getCodigo());
+			
+			
+			st.executeUpdate();
+			return true;
+		}
+		catch(SQLException e ) {
+			
+			e.printStackTrace();
+			return false;
+		}
+		finally {
+			
+			try {
+				st.close();
+			}
+			catch(SQLException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
+	
+
+	
+	
+	/**
+	 * 
+	 * @param conecta
+	 * @param produto
+	 * ALTERA UM PRODUTO NO BANCO 
+	 */
+	public static boolean alteraProduto(Connection conecta, Produto produto) {
+		Statement st =null;
+		try {
+			st = conecta.createStatement();
+			st.executeUpdate("UPDATE produto SET Descricao = '" + produto.getDescricao() + "', preco_venda = '" + produto.getPreco_Venda()+"', preco_custo= '" +  produto.getPreco_Custo()+"', qtd_estoque = '"+ produto.getQtd_Estoque()+"', qtd_min = '"+ produto.getQtd_min()+"' WHERE codigo = '"+ produto.getCodigo() + "'");
+			return true;
+			
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+			return false;
+			
+		}finally {
+			
+			try {
+				st.close();
+			}
+			catch(SQLException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
+	/**
+	 * EXCLUIR UM PRODUTO NO BANCO
+	 * @param conecta
+	 * @param pId
+	 */
+	
+	public static boolean excluirProduto(Connection conecta, int pId) {
+		Statement st =null;
+		
+		try {
+			st=conecta.createStatement();
+			st.executeUpdate("DELETE FROM produto WHERE codigo = '"+ pId +"'");
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}finally {
+			
+			try {
+				st.close();
+			}
+			catch(SQLException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+
+	public static boolean alteraEstoqueProduto(Connection conecta, ArrayList<Produto> listaModelProdutos) {
+		Statement st =null;
+		try {
+			st = conecta.createStatement();
+			for(int i = 0;i<listaModelProdutos.size();i++) {
+				st.executeUpdate("UPDATE produto SET qtd_estoque = '"+ listaModelProdutos.get(i).getQtd_Estoque()+"' WHERE codigo = '"+ listaModelProdutos.get(i).getCodigo() + "'");
+			}
+			return true;
+			
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+			return false;
+			
+		}finally {
+			
+			try {
+				st.close();
+			}
+			catch(SQLException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

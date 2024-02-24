@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module ProjIntegradorModels {
+	requires java.sql;
+}

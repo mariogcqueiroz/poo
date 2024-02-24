@@ -1,0 +1,5 @@
+package resourcewise.query;
+
+public class QueryProduto {
+
+}

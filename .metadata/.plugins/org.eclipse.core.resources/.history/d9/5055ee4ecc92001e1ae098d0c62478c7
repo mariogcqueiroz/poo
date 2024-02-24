@@ -1,0 +1,8 @@
+package Model;
+import java.sql.Date;
+public class Caixa {
+	private float Saldo_Final;
+	private float Saldo_Inicial;
+	private int Codigo;
+	private Date data_venda
+}

@@ -1,0 +1,53 @@
+package view;
+
+import java.awt.Container;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class ResultadoView extends JFrame {
+	private Container container;
+	private JLabel result1;
+	private JLabel result2;
+	private JLabel result3;
+	private JLabel result4;
+	
+	public  ResultadoView() {
+		setBounds(700, 100, 300, 450);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		container = getContentPane();
+		container.setLayout(null);
+		
+		result1 = new JLabel("0");
+		result1.setFont(new Font("Arial", Font.PLAIN, 20));
+		result1.setSize(100, 20);
+		result1.setLocation(100, 250);
+		container.add(result1);
+		
+		result2 = new JLabel("0");
+		result2.setFont(new Font("Arial", Font.PLAIN, 20));
+		result2.setSize(100, 20);
+		result2.setLocation(100, 200);
+		container.add(result2);
+		
+		result3 = new JLabel("0");
+		result3.setFont(new Font("Arial", Font.PLAIN, 20));
+		result3.setSize(100, 20);
+		result3.setLocation(100, 150);
+		container.add(result3);
+		
+		result4 = new JLabel("0");
+		result4.setFont(new Font("Arial", Font.PLAIN, 20));
+		result4.setSize(100, 20);
+		result4.setLocation(100, 100);
+		container.add(result4);
+	}
+	public void update(int value1, int value2, int value3, int value4){
+		result1.setText(Integer.toString(value1));
+		result2.setText(Integer.toString(value2));
+		result3.setText(Integer.toString(value3));
+		result4.setText(Integer.toString(value4));
+	}
+}

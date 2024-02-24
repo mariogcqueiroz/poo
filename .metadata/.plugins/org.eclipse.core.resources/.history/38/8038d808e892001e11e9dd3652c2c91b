@@ -1,0 +1,67 @@
+package entidades;
+import java.sql.Date;
+/**
+ * 
+ */
+public class Caixa {
+	private float Saldo_Final;
+	private float Saldo_Inicial;
+	private int Codigo;
+	private Date Data_Abertura;
+	private Date Data_Fechamento;
+	
+	/**
+	 * Construtor Default de Caixa
+	 */
+	public Caixa() {
+		
+	}
+	/**
+	 * @param Saldo_Final
+	 * @param Saldo_Inicial
+	 * @param Codigo
+	 * @param Data_Aertura
+	 * @param Data_Fechamento
+	 * Construtor de Caixa
+	 */
+	public Caixa(float Saldo_Final, float Saldo_Inicial,int Codigo,Date Data_Aertura, Date Data_Fechamento){
+		super();
+		setSaldo_Final(Saldo_Final);
+		setSaldo_Inicial(Saldo_Inicial);
+		setCodigo(Codigo);
+		setSaldo_Final(Saldo_Final);
+		setSaldo_Final(Saldo_Final);
+		
+	}
+	public float getSaldo_Final() {
+		return Saldo_Final;
+	}
+	public void setSaldo_Final(float saldo_Final) {
+		Saldo_Final = saldo_Final;
+	}
+	public float getSaldo_Inicial() {
+		return Saldo_Inicial;
+	}
+	public void setSaldo_Inicial(float saldo_Inicial) {
+		Saldo_Inicial = saldo_Inicial;
+	}
+	public int getCodigo() {
+		return Codigo;
+	}
+	public void setCodigo(int codigo) {
+		Codigo = codigo;
+	}
+	public Date getData_Abertura() {
+		return Data_Abertura;
+	}
+	public void setData_Abertura(Date data_Abertura) {
+		Data_Abertura = data_Abertura;
+	}
+	public Date getData_Fechamento() {
+		return Data_Fechamento;
+	}
+	public void setData_Fechamento(Date data_Fechamento) {
+		Data_Fechamento = data_Fechamento;
+	}
+	
+}

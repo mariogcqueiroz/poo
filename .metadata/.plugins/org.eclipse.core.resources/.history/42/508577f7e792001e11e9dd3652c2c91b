@@ -1,0 +1,81 @@
+package Model;
+
+public class Funcionario extends Usuario {
+	private String CPF;
+	private String Cargo;
+	private String Telefone;
+	private String Endereco;
+	private float Salario_Base;
+	private float adicionais;
+	
+	/**
+	 * @param usuario
+	 * @param senha
+	 * @param email
+	 * @param cPF
+	 * @param cargo
+	 * @param telefone
+	 * @param endereco
+	 * @param salario_Base
+	 * @param adicionais
+	 * Construtor de Funcionário, que herda atributos de usuário e incorpora os próprios.
+	 */
+	public Funcionario(String usuario, String senha, String email, String cPF, String cargo,
+			String telefone, String endereco, float salario_Base, float adicionais) {
+		super(usuario, senha, email);
+		this.setCPF(cPF);
+		this.setCargo(cargo);
+		this.setTelefone(telefone);
+		this.setEndereco(endereco);
+		this.setSalario_Base(salario_Base);
+		this.setAdicionais(adicionais);
+	}
+	public Funcionario() {
+		
+	}
+	public String getCPF() {
+		return CPF;
+	}
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
+	public String getCargo() {
+		return Cargo;
+	}
+	public void setCargo(String cargo) {
+		Cargo = cargo;
+	}
+	public String getTelefone() {
+		return Telefone;
+	}
+	public void setTelefone(String telefone) {
+		Telefone = telefone;
+	}
+	public String getEndereco() {
+		return Endereco;
+	}
+	public void setEndereco(String endereco) {
+		Endereco = endereco;
+	}
+	public float getSalario_Base() {
+		return Salario_Base;
+	}
+	public void setSalario_Base(float salario_Base) {
+		Salario_Base = salario_Base;
+	}
+	public float getAdicionais() {
+		return adicionais;
+	}
+	public void setAdicionais(float adicionais) {
+		this.adicionais = adicionais;
+	}
+	@Override
+	public String toString() {
+		return "Funcionario [getCPF()=" + getCPF() + ", getCargo()=" + getCargo() + ", getTelefone()=" + getTelefone()
+				+ ", getEndereco()=" + getEndereco() + ", getSalario_Base()=" + getSalario_Base() + ", getAdicionais()="
+				+ getAdicionais() + ", getUsuario()=" + getUsuario() + ", getSenha()=" + getSenha() + ", getEmail()="
+				+ getEmail() + ", toString()=" + super.toString()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+	}
+	
+}

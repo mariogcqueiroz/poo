@@ -1,0 +1,52 @@
+package view;
+import java.awt.Container;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import Controller.VotarController;
+
+public class VotarView extends JFrame {
+	private Container container;
+	private JButton p1;
+	private JButton p2;
+	private JLabel r1;
+	private JLabel r2;
+	
+	public VotarView() {
+		setBounds(400,300,700,450);
+		container = getContentPane();
+		container.setLayout(null);
+		
+		p1 = new JButton ("opção 1");
+		p1.setSize(100,100);
+		p1.setLocation(100,10);
+		container.add(p1);
+		
+		p2 = new JButton ("opção 2");
+		p2.setSize(100,100);
+		p2.setLocation(10,110);
+		container.add(p2);
+		
+		r1 = new JLabel ("0");
+		r1.setSize(100,100);
+		r1.setLocation(10,210);
+		container.add(r1);
+		
+		r2 = new JLabel ("0");
+		p2.setSize(100,100);
+		p2.setLocation(10,310);
+		container.add(p2);
+		
+		setVisible(true);
+	}
+	public void setListeners(VotarController listener) {
+		this.p1.addActionListener(listener);
+		this.p2.addActionListener(listener);
+	}
+	public void atualizar(String re1, String re2) {
+		r1.setText(re1);
+		r2.setText(re2);
+	}
+}

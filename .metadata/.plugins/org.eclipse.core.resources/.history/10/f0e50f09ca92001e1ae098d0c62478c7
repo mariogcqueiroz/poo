@@ -1,0 +1,8 @@
+package Model;
+
+public class Caixa {
+	private float Saldo_Final;
+	private float Saldo_Inicial;
+	private int Codigo;
+	private 
+}

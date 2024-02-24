@@ -1,0 +1,63 @@
+package entidades.copy;
+
+public class Fornecedor {
+	private String CPF_CNPJ;
+	private String Nome;
+	private String Endereco;
+	private String Email;
+	private String Telefone;
+	
+	/**
+	 * Construtor Default de Fornecedor
+	 */
+	public Fornecedor() {
+		
+	}
+	/**
+	 * @param CPF_CNPJ
+	 * @param Nome
+	 * @param Endereco
+	 * @param Email
+	 * @param Telefone
+	 * Construtor de Fornecedor
+	 */
+	public Fornecedor(String CPF_CNPJ,String Nome,String Endereco,String Email, String Telefone) {
+		super();
+		setCPF_CNPJ(CPF_CNPJ);
+		setNome(Nome);
+		setEndereco(Endereco);
+		setEmail(Email);
+		setTelefone(Telefone);
+	}
+	public String getCPF_CNPJ() {
+		return CPF_CNPJ;
+	}
+	public void setCPF_CNPJ(String cPF_CNPJ) {
+		CPF_CNPJ = cPF_CNPJ;
+	}
+	public String getNome() {
+		return Nome;
+	}
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+	public String getEndereco() {
+		return Endereco;
+	}
+	public void setEndereco(String endereco) {
+		Endereco = endereco;
+	}
+	public String getEmail() {
+		return Email;
+	}
+	public void setEmail(String email) {
+		Email = email;
+	}
+	public String getTelefone() {
+		return Telefone;
+	}
+	public void setTelefone(String telefone) {
+		Telefone = telefone;
+	}
+	
+}

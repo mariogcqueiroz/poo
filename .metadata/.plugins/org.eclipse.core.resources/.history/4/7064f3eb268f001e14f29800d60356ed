@@ -1,0 +1,10 @@
+package app;
+import view.VotarView;
+public class app {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		VotarView v = new VotarView();
+	}
+
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="view.screen"/>
+    <fullyQualifiedTypeName name="Model.Modeltest"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="view.VotarView"/>
+    <fullyQualifiedTypeName name="Model.VotarModel"/>
+    <fullyQualifiedTypeName name="Controller.VotarController"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="javax.swing.JTextField"/>
+    <fullyQualifiedTypeName name="java.awt.Container"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="javax.swing.JButton"/>
+    <fullyQualifiedTypeName name="controller.formController"/>
+    <fullyQualifiedTypeName name="view.viewform"/>
+    <fullyQualifiedTypeName name="model.modelform"/>
+    <fullyQualifiedTypeName name="javax.swing.JTextArea"/>
+    <fullyQualifiedTypeName name="entidades.Produto"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="entidades.Cliente"/>
+    <fullyQualifiedTypeName name="entidades.Fornecedor"/>
+    <fullyQualifiedTypeName name="databasequeries.QueryCliente"/>
+    <fullyQualifiedTypeName name="resourcewise.query.QueryCliente"/>
+    <fullyQualifiedTypeName name="resourcewise.model.Produto"/>
+    <fullyQualifiedTypeName name="resourcewise.model.Usuario"/>
+</qualifiedTypeNameHistroy>
